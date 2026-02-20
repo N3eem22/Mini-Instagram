@@ -2,21 +2,14 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
 
-class PostBase(BaseModel):
+# class Post(BaseModel):
+#     id: str
+#     caption: Optional[str] = None
+#     url: str
+#     file_type: str
+#     file_name: str
+#     created_at: datetime
+
+class Post(BaseModel):
+    content: str
     title: str
-    content: str
-    description: Optional[str] = None
-
-
-class PostCreate(PostBase):
-    pass
-
-
-class Post(PostBase):
-    id: int
-    created_at: datetime
-    updated_at: datetime
-    content: str
-
-    class Config:
-        from_attributes = True
